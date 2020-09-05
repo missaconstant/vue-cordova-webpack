@@ -38,12 +38,17 @@
       <v-ons-col>
         <v-ons-card @click="goTo('https://github.com/vuejs/awesome-vue')">awesome-vue</v-ons-card>
       </v-ons-col>
+      <v-ons-col>
+        <v-ons-card @click="goToPage2()">Go to Page 2</v-ons-card>
+      </v-ons-col>
     </v-ons-row>
 
   </v-ons-page>
 </template>
 
 <script>
+import Page2 from './Page2';
+
 export default {
   name: 'home',
   data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
@@ -81,6 +86,10 @@ export default {
   methods: {
     goTo{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}(url) {
       window.open(url, '_blank'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+
+    goToPage2{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}(url) {
+      this.$emit('push-page', Page2){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
