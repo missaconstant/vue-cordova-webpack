@@ -85,11 +85,11 @@ export default {
   },
   methods: {
     goTo{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}(url) {
-      window.open(url, '_blank'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      window.open(url, '_blank');
+    },
 
     goToPage2{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}(url) {
-      this.$emit('push-page', Page2){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      this.$emit('push-page', Page2);
     }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
