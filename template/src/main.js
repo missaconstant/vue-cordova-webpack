@@ -20,20 +20,23 @@ Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 Vue.use(VueOnsen){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  {{#router}}
-  router,
-  {{/router}}
-  {{#vuex}}
-  store,
-  {{/vuex}}
-  {{#if_eq build "runtime"}}
-  render: h => h(Stack){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
-  template: '<Stack/>',
-  components: { Stack }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+// wait until cordova is ready to start activities
+document.addEventListener('deviceready', () => {
+    /* eslint-disable no-new */
+    new Vue({
+      el: '#app',
+      {{#router}}
+      router,
+      {{/router}}
+      {{#vuex}}
+      store,
+      {{/vuex}}
+      {{#if_eq build "runtime"}}
+      render: h => h(Stack){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      {{/if_eq}}
+      {{#if_eq build "standalone"}}
+      template: '<Stack/>',
+      components: { Stack }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      {{/if_eq}}
+    }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+});
