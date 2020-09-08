@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import HomePage from './components/HomePage';
+    import HomePage from './Pages/HomePage';
 
     export default {
         name: 'Stack',
